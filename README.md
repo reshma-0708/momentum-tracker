@@ -23,3 +23,7 @@ Progress isn’t linear. There are dips — but consistency is about recovering 
 
 ## 🤝 Feedback
 Open to suggestions and improvements!
+
+## ▶️ How to Run
+1. Download or clone the repository  
+2. Open `index.html` in your browser  

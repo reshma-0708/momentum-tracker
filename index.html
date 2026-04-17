@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Insight Dashboard</title>
+  <link rel="stylesheet" href="style.css?v=4">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="bg-mesh"></div>
+  
+  <div class="container">
+    <header class="main-header">
+      <h1>✨ Plan vs Done</h1>
+      <p class="tagline">Track your daily magic</p>
+    </header>
+
+    <!-- 🔹 SUMMARY -->
+    <div class="section summary-section">
+      <div class="summary-grid">
+        <div class="stat-card tasks-card">
+          <div class="stat-icon">📋</div>
+          <div class="stat-label">Planned</div>
+          <div class="stat-value" id="totalTasks">0</div>
+          <div class="progress-ring">
+            <div class="progress-fill" id="totalBar"></div>
+          </div>
+        </div>
+
+        <div class="stat-card done-card">
+          <div class="stat-icon">✅</div>
+          <div class="stat-label">Crushed</div>
+          <div class="stat-value" id="doneTasks">0</div>
+          <div class="progress-ring">
+            <div class="progress-fill" id="doneBar"></div>
+          </div>
+        </div>
+
+        <div class="stat-card percent-card">
+          <div class="stat-icon">⚡</div>
+          <div class="stat-label">Power</div>
+          <div class="stat-value" id="percent">0%</div>
+          <div class="progress-ring">
+            <div class="progress-fill" id="percentBar"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🔹 ADD ENTRY -->
+    <div class="section input-section">
+      <div class="section-header">
+        <span class="section-emoji">🎯</span>
+        <h3>Plan Your Day</h3>
+      </div>
+      
+      <div class="date-picker-wrapper">
+        <input type="date" id="date" class="date-input">
+      </div>
+
+      <div class="categories-grid">
+        <div class="category-card study-card">
+          <div class="category-header">
+            <span class="cat-emoji">📚</span>
+            <h4>Study</h4>
+          </div>
+          <div class="input-group">
+            <input id="studyTask" placeholder="What will you learn?">
+            <button onclick="addTask('study')" class="add-btn">+</button>
+          </div>
+          <div id="studyList" class="task-list"></div>
+        </div>
+
+        <div class="category-card health-card">
+          <div class="category-header">
+            <span class="cat-emoji">💪</span>
+            <h4>Health</h4>
+          </div>
+          <div class="input-group">
+            <input id="healthTask" placeholder="Move your body...">
+            <button onclick="addTask('health')" class="add-btn">+</button>
+          </div>
+          <div id="healthList" class="task-list"></div>
+        </div>
+
+        <div class="category-card growth-card">
+          <div class="category-header">
+            <span class="cat-emoji">🌱</span>
+            <h4>Goal</h4>
+          </div>
+          <div class="input-group">
+            <input id="growthTask" placeholder="Level up...">
+            <button onclick="addTask('growth')" class="add-btn">+</button>
+          </div>
+          <div id="growthList" class="task-list"></div>
+        </div>
+
+        <div class="category-card rest-card">
+          <div class="category-header">
+            <span class="cat-emoji">😴</span>
+            <h4>Rest</h4>
+          </div>
+          <div class="input-group">
+            <input id="restTask" placeholder="Recharge...">
+            <button onclick="addTask('rest')" class="add-btn">+</button>
+          </div>
+          <div id="restList" class="task-list"></div>
+        </div>
+      </div>
+
+      <button onclick="saveDay()" class="save-btn">
+        <span>🚀 Save My Day</span>
+      </button>
+    </div>
+
+    <!-- 🔹 ENTRIES -->
+    <div class="section entries-section">
+      <div class="section-header">
+        <span class="section-emoji">📅</span>
+        <h3>Your Journey</h3>
+      </div>
+      <div id="entries" class="entries-grid">
+        <div class="empty-state">Start logging today — patterns will show up soon 🚀</div>
+      </div>
+    </div>
+
+    <!-- 🔹 CHART -->
+    <div class="section chart-section">
+      <div class="section-header">
+        <span class="section-emoji">📊</span>
+        <h3>Momentum</h3>
+      </div>
+      <div class="chart-container">
+        <canvas id="chart"></canvas>
+      </div>
+    </div>
+
+    <!-- 🔹 INSIGHT -->
+    <div class="section insight-section">
+      <div class="insight-bubble">
+        <div class="insight-emoji">💡</div>
+        <p id="insight">Start adding data… I'll figure you out 👀</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="time.js"></script>
+</body>
+</html>
